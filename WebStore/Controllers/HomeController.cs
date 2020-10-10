@@ -4,84 +4,45 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebStore.ViewModels;
 
 namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly List<EmployeeViewModel> _employees = new List<EmployeeViewModel>
+        {
+            new EmployeeViewModel
+            {
+                Id = 1,
+                FirstName = "Иван",
+                SurName = "Иванов",
+                Patronymic = "Иванович",
+                Age = 22,
+                Position = "Начальник"
+            },
+            new EmployeeViewModel
+            {
+                Id = 2,
+                FirstName = "Владислав",
+                SurName = "Петров",
+                Patronymic = "Иванович",
+                Age = 35,
+                Position = "Программист"
+            }
+
+        };
         // GET: HomeController
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
+            
+        }
+        public IActionResult Employees()
+        {
+
+            return View(_employees);
         }
 
-        // GET: HomeController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: HomeController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: HomeController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: HomeController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: HomeController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: HomeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: HomeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

@@ -35,6 +35,7 @@ namespace WebStore
             }
 
             var hello = _configuration["CustomHelloWorld"];
+           // var loglevel = _configuration["Logging:LogLevel:Default"];
 
 
             app.UseRouting();
