@@ -1,5 +1,6 @@
 ﻿
 @model WebStore.ViewModels.EmployeeViewModel
+@Html.ActionLink("Назад к списку", "Employees", "Home")
 
 <table class="table table-bordereed">
     <tr>
@@ -22,7 +23,5 @@
         <td>Должность</td>
         <td>@Model.Position</td>
     </tr>
-    <td>
-        @Html.ActionLink("Назад", "Employees")
-    </td>
+
 </table>
