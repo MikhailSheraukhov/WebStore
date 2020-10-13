@@ -48,10 +48,10 @@ namespace WebStore
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync(hello);
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync(hello);
+                //});
             });
         }
     }
